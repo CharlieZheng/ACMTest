@@ -1,5 +1,12 @@
 package m6d24.p1;
-
+/**
+ * 被忽略的一种情况导致的错误：
+ *     当数组为{5, 6, 8, 7}这种情况时，其中5为枢轴，则在该代码中
+ *     语句判断中if(array[key] != keyValue)成立，故不再对该数组进行
+ *     排序，则得到还是原来的结果
+ * @author hanrong
+ *
+ */
 public class Quicksort {
 
 	public static void main(String[] args) {
@@ -12,12 +19,12 @@ public class Quicksort {
 //		int[] array = new int[]{10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
 //		int[] array = new int[]{10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
 //		int[] array = new int[]{10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
-		int[] array = new int[]{10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+		int[] array = new int[]{9, 10, 8, 7, 6, 5};
 //		int[] array = new int[]{0, 9, 8, 7, 6, 5, 4, 3, 2, 1, 10};
 //		quicksort(array, 0, 0, 10);
 //		printArray(array, 0, 10);
-		quicksort(array, 1, 0, 10);
-		printArray(array, 0, 10);
+		quicksort(array, 0, 0, 5);
+		printArray(array, 0, 5);
 	}
 	
 	private static void quicksort(int[] array, int key, int low, int high) {
@@ -58,7 +65,7 @@ public class Quicksort {
 //			}
 				System.out.println("******************* 开始 *******************");
 				System.out.println("before key = [" + key + "]");
-				printArray(array, low, high);
+//				printArray(array, low, high);
 				quicksort(array, low, low, key - 1); // 0, 1, 2, 3, 4排好一次序后，key为0
 				System.out.println("after key = [" + key + "]");
 				System.out.println("******************* 结束 *******************");
